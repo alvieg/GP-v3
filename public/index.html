@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
-
-        <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/uv/sw.js", {
-                    scope: __uv$config.prefix,
-                });
-            });
-        }
-        </script>
-
         <meta charset="utf-8">
         <title>about:blank</title>
         <style>
@@ -130,45 +117,6 @@
                 overflow: hidden;
                 z-index: 1000;
             }
-            .iframeWindow {
-                position: absolute;
-                width: 100vw;
-                height: 90vh;
-                border: 0;
-                padding: 0;
-                margin: 0;
-                left: 0;
-                bottom: 0;
-                background-color: #fff;
-            }
-            #urlInput {
-                position: absolute;
-                padding: 0em;
-                padding-left: 0.5em;
-                margin: 0;
-                left: 0;
-                top: 0;
-                width: 80vw;
-                height: 10vh;
-                border: 0;
-                outline: 0;
-                color: aliceblue;
-                background-color: #25252a;
-                font-size: 5vh;
-            }
-            #searchButton {
-                position: absolute;
-                margin: 0;
-                right: 0;
-                top: 0;
-                width: 20vw;
-                height: 10vh;
-                border: 0;
-                outline: 0;
-                color: #141414;
-                background-color: aliceblue;
-                font-size: 5vh;
-            }
         </style>
     </head>
     <body>
@@ -181,10 +129,6 @@
         <div class="modal" id="modal">
             <embed id="iframe">
         </div>
-        <!--<input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton">Search Text</button>
-
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>-->
         <script>
             const gameButtons = {
                 "GHUB":"https://thegportal.neocities.org",
