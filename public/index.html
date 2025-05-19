@@ -198,16 +198,16 @@
             // Event listeners
             modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
             document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && event.altKey) {
+                if (event.key === 'e' && event.altKey) {
                     closeModal();
                 };
             });
             //listener for iframe reload
-            document.addEventListener('keydown', function(event) {
+            /*document.addEventListener('keydown', function(event) {
                 if (event.key === 'r' && event.altKey) {
                     embed.src = embed.src;
                 };
-            });
+            });*/
         </script>
     </body>
 </html>
