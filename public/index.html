@@ -7,7 +7,31 @@
             @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
             * {
                 font-family: 'Orbitron', sans-serif;
-                cursor: url('')
+                cursor: url('pizza.gif');
+                animation: fadeIn 3s;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                } to {
+                    opacity: 1;
+                }
+            }
+            @keyframes darkToLight {
+                from {
+                    background-color: black;
+                } 
+                to {
+                    background-color: white;
+                }
+            }
+            @keyframes lightToDark {
+                from {
+                    background-color: white;
+                } 
+                to {
+                    background-color: black;
+                }
             }
             .title {
                 text-align: center;
@@ -19,17 +43,20 @@
                 --txt-color: white;
                 --bg-color: black;
                 --button-txt-color: white;
-                --btn-hover-bg-clr: white
+                --btn-hover-bg-clr: black;
             }
             body.light {
                 --button-color: dodgerblue;
                 --txt-color: dodgerblue;
                 --bg-color: white;
-                --btn-hover-bg-clr: black
+                --btn-hover-bg-clr: white;
+                --button-txt-color: black;
+                animation: darkToLight 3s;
             }
             body {
                 background-color: var(--bg-color);
                 color: dodgerblue;
+                animation: lightToDark 3s;
             }
             .buttonSpace button {
                 background-color: var(--button-color);
@@ -39,19 +66,22 @@
                 font-size: 9vh;
                 text-align: center;
                 justify-content: center;
-                margin: 1vh;
-                width: 47vw;
+                margin-left: 1vh;
+                margin-right: 1vh;
+                margin-top: 1vh;
+                margin-bottom: 1vh;
+                width: 48vw;
                 height: 15vh;
-                transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out; 
+                transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out; 
             }
             .buttonSpace button:hover {
                 background-color: var(--btn-hover-bg-clr);
-                border-radius: 30px;
+                border-radius: 100px;
                 color: dodgerblue;
                 transform: scale(1.025);
-                transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out;
+                transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out;
             }
-            #toggle {
+            #launchInAboutBlankBtn, #toggle {
                 background-color: var(--button-color);
                 color: var(--button-txt-color);
                 border: 2px solid dodgerblue;
@@ -64,7 +94,7 @@
                 height: 5vh;
                 transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out; 
             }
-            #toggle:hover {
+            #launchInAboutBlankBtn:hover, #toggle:hover {
                 background-color: var(--btn-hover-bg-clr);
                 border-radius: 30px;
                 color: dodgerblue;
@@ -117,20 +147,56 @@
                 overflow: hidden;
                 z-index: 1000;
             }
+            h2 {
+                font-size: 24px;
+                color: var(--txt-color)
+            }
+            a {
+                position: relative;
+                color: deepskyblue;
+                text-decoration: none;
+                font-size: 12px;
+            }
+            a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background-color: deepskyblue;
+                transform: scaleX(0);
+                transform-origin: center;
+                transition: transform .25s linear;
+            }
+            a:hover::after {
+                transform: scaleX(1);
+            }
+            .footer {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                padding: 10px;
+                margin-bottom: 5px
+            }
         </style>
-        <script>
-            alert('When you first click on a button, you will have to click alt escape and click it again to work.')
-        </script>
     </head>
     <body>
         <div class="title">
-            <h1 class="title" id="title">Click a button to open in About:Blank</h1>
+            <h1 class="title" id="title">Click a button to open in PopUp</h1>
+            <h2>Click alt escape or click out to close the PopUp</h2>
             <button id="toggle" onclick="toggleTheme()" class="toggle">Toggle Light/Dark</button>
+            <button class="toggle" id="launchInAboutBlankBtn" onclick="openInNewTab('https://aboutblankcloaker.w3spaces.com')">Open in About:Blank</button>
         </div>
         <div id="buttonSpace" class="buttonSpace"><!--buttons created by js--></div>
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal" id="modal">
             <embed id="iframe">
+        </div>
+        <div class="footer">
+            <a target="_blank" class="otherLinks" href="https://donutgames.w3spaces.com">Donut Games</a>
+            <a target="_blank" class="otherLinks" href="https://multigames.w3spaces.com">MultiGames</a>
+            <a target="_blank" class="otherLinks" href="https://abesgames.odoo.com">Abe's Games</a>
         </div>
         <script>
             const gameButtons = {
@@ -140,7 +206,11 @@
                 "Butter Dog Games":"https://teachers-are-the-best.neocities.org",
                 "GN-Math":"https://gn-math.github.io",
                 "MiniPlay":"https://miniplay.com",
-                "Proxy (WIP)":"/proxy.html",
+                "GHUB V2":"https://v2.thegportal.net",
+                "Space (Proxy)":"https://gointospace.app",
+                "3KH0":"https://3kh0s.github.io",
+                "Games 4 Free":"https://games-4-free.com",
+                "Proxy (WIP)":"https://gameportal-v3-2025.vercel.app/proxy.html",
                 "Interstellar":"https://interstellar-2025.vercel.app/",
             };
             const buttonSpace = document.getElementById('buttonSpace');
