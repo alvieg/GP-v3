@@ -3,6 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>about:blank</title>
+        <script src="/uv/uv.bundle.js"></script>
+        <script src="/uv/uv.config.js"></script>
+        <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/uv/sw.js", {
+                    scope: __uv$config.prefix,
+                });
+            });
+        }
+        </script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
             * {
