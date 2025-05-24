@@ -1,13 +1,13 @@
-document // makes it so you can press enter to submit as opposed to just being able to press a button
+/*document // makes it so you can press enter to submit as opposed to just being able to press a button
     .getElementById("urlInput")
     .addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("searchButton").click();
         }
-    });
+    });*/
 
-document.getElementById("searchButton").onclick = function (event) {
+/*document.getElementById("searchButton").onclick = function (event) {
     event.preventDefault();
 
     let url = document.getElementById("urlInput").value; // if no periods are detected in the input, search google instead
@@ -22,4 +22,6 @@ document.getElementById("searchButton").onclick = function (event) {
     }
 
     iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-};
+};*/
+const iframe = document.getElementById('iframe');
+iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
