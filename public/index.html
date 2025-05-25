@@ -223,6 +223,7 @@
                 "Games 4 Free":"https://games-4-free.com",
                 "Proxy (WIP)":"https://gameportal-v3-2025.vercel.app/proxy.html",
                 "Interstellar":"https://interstellar-2025.vercel.app/",
+                "Poki":"https://poki.com/"
             };
             const buttonSpace = document.getElementById('buttonSpace');
 
@@ -269,10 +270,9 @@
             function openModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
-                embed.src = URL;
-                embed.src = URL
+                embed.src = __uv$config.prefix + __uv$config.encodeUrl(URL);
             }
-
+            //iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             // Function to close modal
             function closeModal() {
                 modal.style.display = 'none';
