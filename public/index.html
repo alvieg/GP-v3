@@ -282,23 +282,7 @@
 
             // Event listeners
             modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape' && event.altKey) {
-                    closeModal();
-                };
-            });
-            //listener for iframe reload
-            /*document.addEventListener('keydown', function(event) {
-                if (event.key === 'r' && event.altKey) {
-                    embed.src = embed.src;
-                };
-            });*/
-            //Listener to launch in ABOUT:BLANK
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Space' && event.altKey) {
-                    redirect();
-                };
-            });
+
             function redirect() {
                 var src = document.getElementById('iframe').src;
                 openInNewTab(src);
