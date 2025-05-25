@@ -117,8 +117,8 @@
                 position: fixed;
                 top: 50%;
                 left: 50%;
-                height: 97%;
-                width: 97%;
+                height: 98.5%;
+                width: 100%;
                 transform: translate(-50%, -50%);
                 background-color: white;
                 padding: 0;
@@ -200,6 +200,13 @@
             <button class="toggle" id="launchInAboutBlankBtn" onclick="openInNewTab('https://aboutblankcloaker.w3spaces.com')">Open in About:Blank</button>
         </div>
         <div id="buttonSpace" class="buttonSpace"><!--buttons created by js--></div>
+        <br><br>
+        <hr>
+        <br><br>
+        <div class="title">
+            <h2>Proxied Sites (May Not Work)</h2>
+        </div>
+        <div id="proxyButtonSpace" class="buttonSpace"><!--button created by js--></div>
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal" id="modal">
             <embed id="iframe">
@@ -223,16 +230,31 @@
                 "Games 4 Free":"https://games-4-free.com",
                 "Proxy (WIP)":"https://gameportal-v3-2025.vercel.app/proxy.html",
                 "Interstellar":"https://interstellar-2025.vercel.app/",
-                "Poki":"https://poki.com/"
             };
+
+            const proxiedGB = {
+                "Poki":"https://poki.com",
+                "CrazyGames":"https://crazygames.com",
+            };
+            
             const buttonSpace = document.getElementById('buttonSpace');
 
+            const proxiedButtonSpace = document.getElementById('proxyButtonSpace')
+            
             for (const [key, value] of Object.entries(gameButtons)) {
                 const button = document.createElement('button');
                 button.textContent = key;
                 button.onclick = () => openModal(value);
                 buttonSpace.appendChild(button);
             }
+
+            for (const [key, value] of Object.entries(proxiedGB)) {
+                const button = document.createElement('button');
+                button.textContent = key;
+                button.onclick = () => openProxyModal(value);
+                proxiedButtonSpace.appendChild(button);
+            }
+            
             function checkHTTP(VAR) {
                 if (!VAR.startsWith('https://') && !VAR.startsWith('http://')) {
                     VAR = "https://" + VAR;
@@ -270,15 +292,22 @@
             function openModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
-                embed.src = __uv$config.prefix + __uv$config.encodeUrl(URL);
-            }
+                embed.src = URL
+            };
+
+            function openProxyModal(URL) {
+                modal.style.display = 'block';
+                modalOverlay.style.display = 'block'
+                embed.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+            };
+            
             //iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             // Function to close modal
             function closeModal() {
                 modal.style.display = 'none';
                 modalOverlay.style.display = 'none';
-                embed.src = ''
-            }
+                embed.src = '';
+            };
 
             // Event listeners
             modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
