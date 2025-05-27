@@ -137,7 +137,11 @@
                 width:100%;
                 transform:translate(-50%, -2.5%);
                 z-index: 999;
-                overflow: Hidden
+                overflow: Hidden;
+                background-color: white;
+                padding: 0;
+                border: none;
+                border-radius: 8px;
             }
             .modal-overlay {
                 display: none; /* Hidden by default */
@@ -219,7 +223,7 @@
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modalToolbar" id="modalToolbar">
             <button class="modalToolbarBtn closeModalBtn" onclick="closeModal()">Close</button>
-            <button class="modalToolbarBtn FsBtn">Fullscreen</button>
+            <!--<button class="modalToolbarBtn FsBtn">Fullscreen</button>-->
             <button class="modalToolbarBtn AbtBlnkBtn" onclick="redirect()">Open In About:Blank</button>
         </div>
         <div class="modal" id="modal">
@@ -301,19 +305,20 @@
             const modal = document.getElementById('modal');
             const modalOverlay = document.getElementById('modalOverlay');
             const embed = document.getElementById('iframe')
-            const modalTB = document.getElementById('modalToolbar')
+            const modalTB = document.getElementById('modalToolbar');
 
             // Function to open modal
             function openModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
-                modalTB.style.display = 'block'
+                modalTB.style.display = 'block';
                 embed.src = URL
             };
 
             function openProxyModal(URL) {
                 modal.style.display = 'block';
-                modalOverlay.style.display = 'block'
+                modalOverlay.style.display = 'block';
+                modalTB.style.display = 'block';
                 embed.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             };
             
@@ -322,12 +327,12 @@
             function closeModal() {
                 modal.style.display = 'none';
                 modalOverlay.style.display = 'none';
-                modalTB.style.display = 'none'
+                modalTB.style.display = 'none';
                 embed.src = '';
             };
 
             // Event listeners
-            //modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
+            modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
 
             function redirect() {
                 var src = document.getElementById('iframe').src;
