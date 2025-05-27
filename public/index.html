@@ -3,17 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>about:blank</title>
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
+        <script src="/assets/uv/uv.bundle.js"></script>
+        <script src="/assets/uv/uv.config.js"></script>
         <link rel="stylesheet" href="/assets/css/style.css">
         <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/uv/sw.js", {
-                    scope: __uv$config.prefix,
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker.register("/uv/sw.js", {
+                        scope: __uv$config.prefix,
+                    });
                 });
-            });
-        }
+            }
         </script>
     </head>
     <body>
