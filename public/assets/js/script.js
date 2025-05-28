@@ -15,14 +15,14 @@
                 "Interstellar":"https://interstellar-2025.vercel.app/",
             };
 
-            const proxiedGB = {
+            /*const proxiedGB = {
                 "Poki":"https://poki.com",
                 "CrazyGames":"https://crazygames.com",
-            };
+            };*/
             
             const buttonSpace = document.getElementById('buttonSpace');
 
-            const proxiedButtonSpace = document.getElementById('proxyButtonSpace')
+            //const proxiedButtonSpace = document.getElementById('proxyButtonSpace')
             
             for (const [key, value] of Object.entries(gameButtons)) {
                 const button = document.createElement('button');
@@ -31,12 +31,12 @@
                 buttonSpace.appendChild(button);
             };
 
-            for (const [key, value] of Object.entries(proxiedGB)) {
+            /*for (const [key, value] of Object.entries(proxiedGB)) {
                 const button = document.createElement('button');
                 button.textContent = key;
                 button.onclick = () => openProxyModal(value);
                 proxiedButtonSpace.appendChild(button);
-            };
+            };*/
             
             function checkHTTP(VAR) {
                 if (!VAR.startsWith('https://') && !VAR.startsWith('http://')) {
@@ -76,17 +76,15 @@
             function openModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
-                modalTB.style.display = 'flex';
-                modalTB.style.flex-direction = 'column';
                 embed.src = URL
             };
 
-            function openProxyModal(URL) {
+            /*function openProxyModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
                 modalTB.style.display = 'block';
                 embed.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-            };
+            };*/
             
             //iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             // Function to close modal
@@ -98,7 +96,7 @@
             };
 
             // Event listeners
-            modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
+            //modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
 
             function redirect() {
                 var src = document.getElementById('iframe').src;
