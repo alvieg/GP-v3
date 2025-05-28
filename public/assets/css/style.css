@@ -70,11 +70,8 @@
                 font-size: 7vh;
                 text-align: center;
                 justify-content: center;
-                margin-left: 1vh;
-                margin-right: 1vh;
-                margin-top: 1vh;
-                margin-bottom: 1vh;
-                width: 48vw;
+                margin: 1%;
+                width: 48%;
                 height: 15vh;
                 transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out; 
             }
@@ -85,7 +82,7 @@
                 transform: scale(1.025);
                 transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out;
             }
-            #launchInAboutBlankBtn, #toggle, .modalToolbar button {
+            #launchInAboutBlankBtn, #toggle {
                 background-color: var(--button-color);
                 color: var(--button-txt-color);
                 border: 2px solid dodgerblue;
@@ -98,11 +95,24 @@
                 height: 5vh;
                 transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out; 
             }
-            .modalToolbar:hover {
-                background-color: var(--btn-hover-bg-clr);
-                border-radius: 30px;
-                color: dodgerblue;
-                transition: border-radius 0.5s ease-in-out;
+            .modalToolbar button {
+                background-color: var(--button-color);
+                color: var(--button-txt-color);
+                border: 0;
+                text-align: center;
+                font-size: 12px;
+                justify-content: center;
+                margin: none;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out;
+            }
+            .modalToolbar {
+                display: none;
+                justify-content: space-evenly;
+                text-align: center;
+                height: 5%;
+                width: 100%;
             }
             #launchInAboutBlankBtn:hover, #toggle:hover {
                 background-color: var(--btn-hover-bg-clr);
