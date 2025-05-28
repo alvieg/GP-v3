@@ -96,7 +96,7 @@
             };
 
             // Event listeners
-            //modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
+            modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
 
             function redirect() {
                 var src = document.getElementById('iframe').src;
