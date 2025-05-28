@@ -103,3 +103,12 @@
                 var src = document.getElementById('iframe').src;
                 openInNewTab(src);
             };
+            //404 redirect
+            // List of valid pages
+            const validPages = ['/'];
+            
+            // Check if the current path is valid
+            if (!validPages.includes(window.location.pathname)) {
+              // Redirect to a custom 404 page
+              window.location.href = '/404.html';
+            }
