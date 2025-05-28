@@ -109,10 +109,15 @@
             }
             .modalToolbar {
                 display: none;
+                background-color: gray;
                 justify-content: space-evenly;
-                text-align: center;
+                align-items:center;
                 height: 5%;
                 width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                /*transform: translate(-2.5%, -50%)*/
             }
             #launchInAboutBlankBtn:hover, #toggle:hover {
                 background-color: var(--btn-hover-bg-clr);
