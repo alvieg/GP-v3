@@ -76,7 +76,7 @@
             function openModal(URL) {
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
-                modalTB.style.display = 'block';
+                //modalTB.style.display = 'block';
                 embed.src = URL
             };
 
