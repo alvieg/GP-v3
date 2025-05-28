@@ -56,9 +56,11 @@
                 overflow: hidden;
                 border: 0;
                 margin: none;
-                position: relative;
+                position: absolute;
                 top: 0;
                 left: 0;
+                display: flex;
+                flex-direction: column;
             }
             .buttonSpace button {
                 background-color: var(--button-color);
