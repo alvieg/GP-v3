@@ -56,6 +56,9 @@
                 overflow: hidden;
                 border: 0;
                 margin: none;
+                position: relative;
+                top: 0;
+                left: 0;
             }
             .buttonSpace button {
                 background-color: var(--button-color);
