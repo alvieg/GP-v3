@@ -28,7 +28,8 @@
                 const button = document.createElement('button');
                 button.textContent = key;
                 button.onclick = () => openModal(value);
-                buttonSpace.appendChild(button);
+                 button.className = "game-buttons";
+                 buttonSpace.appendChild(button);
             };
 
             /*for (const [key, value] of Object.entries(proxiedGB)) {
