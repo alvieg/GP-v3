@@ -134,8 +134,8 @@
                 let deltaX = (clientX - centerX) * 1;//Change multiplier for effect intensity
                 let deltaY = (clientY - centerY) * 1;
 				
-                const maxTilt = -20; //Adjust tilt limits
-                const minTilt = 9;
+                const maxTilt = -15; //Adjust tilt limits
+                const minTilt = 4;
                 
                 // Limit tilt angle to max/min degrees
                 deltaX = Math.max(maxTilt, Math.min(minTilt, deltaX));
