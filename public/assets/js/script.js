@@ -28,8 +28,9 @@
                 const button = document.createElement('button');
                 button.textContent = key;
                 button.onclick = () => openModal(value);
-                 button.className = "game-buttons";
-                 buttonSpace.appendChild(button);
+                button.ondblclick = () => openInNewTab(value);
+                button.className = "game-buttons";
+                buttonSpace.appendChild(button);
             };
 
             /*for (const [key, value] of Object.entries(proxiedGB)) {
@@ -80,13 +81,20 @@
                 //modalTB.style.display = 'block';
                 embed.src = URL
             };
+            
+            const urlInput = document.getElementById('inputBox').value;
 
-            /*function openProxyModal(URL) {
+            function openProxyModal() {
+                checkHTTP(urlInput);
+                // Open modal with the specified URL
                 modal.style.display = 'block';
                 modalOverlay.style.display = 'block';
                 modalTB.style.display = 'block';
-                embed.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-            };*/
+                embed.src = url;
+            };
+
+            document.getElementById('urlButton').addEventListener('dblclick', openInNewTab(urlInput));
+            document.getElementById('urlButton').addEventListener('click', openProxyModal);
             
             //iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             // Function to close modal
@@ -100,6 +108,7 @@
             // Event listeners
             modalOverlay.addEventListener('click', closeModal); // Close modal when clicking outside
 
+            // takes the modal's src and launches in about:blank
             function redirect() {
                 var src = document.getElementById('iframe').src;
                 openInNewTab(src);
@@ -113,3 +122,45 @@
               // Redirect to a custom 404 page
               window.location.href = '/404.html';
             }
+
+            document.querySelectorAll('.game-buttons').forEach(button => {
+            button.addEventListener('mousemove', (event) => {
+                const { clientX, clientY } = event;
+                const { left, top, width, height } = button.getBoundingClientRect();
+                
+                const centerX = left + width / 2;
+                const centerY = top + height / 2;
+                
+                let deltaX = (clientX - centerX) * 1;//Change multiplier for effect intensity
+                let deltaY = (clientY - centerY) * 1;
+				
+                const maxTilt = -20; //Adjust tilt limits
+                const minTilt = 9;
+                
+                // Limit tilt angle to max/min degrees
+                deltaX = Math.max(maxTilt, Math.min(minTilt, deltaX));
+                deltaY = Math.max(maxTilt, Math.min(minTilt, deltaY));
+
+                // Add Z-axis rotation based on diagonal movement
+                let deltaZ = (deltaX + deltaY) / 4;  // Creating subtle rotation effect
+                deltaZ = Math.max(-15, Math.min(15, deltaZ)); // Limit rotation to ±15 degrees
+
+                // Calculate shadow based on tilt position
+                const shadowX = deltaX * 0.8;
+                const shadowY = deltaY * 0.8;
+                const shadowBlur = Math.max(Math.abs(deltaX), Math.abs(deltaY)) * 1.5;
+
+                // Elevate button when heavily tilted
+                const elevation = Math.max(Math.abs(deltaX), Math.abs(deltaY));
+                button.style.zIndex = elevation > 15 ? 10 : 1; // Increase z-index when tilt is high
+
+                button.style.transform = `rotateX(${deltaY}deg) rotateY(${deltaX}deg) rotateZ(${deltaZ}deg)`;
+                button.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(255, 255, 255, 0.4)`;
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)';
+                button.style.boxShadow = '0px 0px 5px rgba(255, 255, 255, 0.2)';
+                button.style.zIndex = 1; // Reset z-index
+            });
+        });

@@ -66,20 +66,18 @@
                 color: var(--button-txt-color);
                 border: 5px solid dodgerblue;
                 border-radius: 8px;
+                cursor: pointer;
                 font-size: 7vh;
                 text-align: center;
                 justify-content: center;
                 margin: 1%;
                 width: 48%;
                 height: 15vh;
-                transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out; 
+                transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
             }
             .buttonSpace button:hover {
                 background-color: var(--btn-hover-bg-clr);
-                border-radius: 100px;
                 color: dodgerblue;
-                transform: scale(1.025);
-                transition: transform 0.3s ease-in-out, border-radius 0.8s ease-in-out;
             }
             #launchInAboutBlankBtn, #toggle {
                 background-color: var(--button-color);
@@ -219,3 +217,14 @@
                 align-items: center;
                 padding: 10px;
             }
+            input {
+                padding: 13px;
+                border: 2px solid dodgerblue;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            input::placeholder {
+                color: #888;
+                font-style: italic;
+            }
+
