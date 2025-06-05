@@ -80,9 +80,6 @@
                 color: dodgerblue;
             }
             #launchInAboutBlankBtn, #toggle, #urlButton, .modalToolbar button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 cursor: pointer;
                 background-color: var(--button-color);
                 color: var(--button-txt-color);
@@ -96,18 +93,6 @@
                 height: 5vh;
                 transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out; 
             }
-            .modalToolbar button {
-                background-color: var(--button-color);
-                color: var(--button-txt-color);
-                border: 0;
-                text-align: center;
-                font-size: 12px;
-                justify-content: center;
-                margin: none;
-                width: 100%;
-                height: 100%;
-                transition: transform 0.3s ease-in-out, border-radius 0.5s ease-in-out;
-            }
             .modalToolbar {
                 display: none;
                 background-color: gray;
@@ -119,6 +104,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-2.5%, -50%);
+                z-index: 999;
             }
             #launchInAboutBlankBtn:hover, #toggle:hover, #urlButton:hover {
                 background-color: var(--btn-hover-bg-clr);
@@ -142,23 +128,6 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 z-index: 999;
                 overflow: Hidden;
-            }
-            .modalToolbar {
-                display: none;
-                position: fixed;
-                top: 2.5%;
-                left: 50%;
-                height: 5%;
-                width: 100%;
-                transform: translate(-50%, -50%);
-                z-index: 1002;
-                overflow: Hidden;
-                background-color: var(--bg-color);
-                padding: 0;
-                border: none;
-                border-radius: 0;
-                justify-content: space-evenly;
-                align-items: center;
             }
             .modal-overlay {
                 display: none; /* Hidden by default */
