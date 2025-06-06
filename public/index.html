@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>about:blank</title>
-        <script src="/assets/uv/uv.bundle.js"></script>
-        <script src="/assets/uv/uv.config.js"></script>
-        <link rel="stylesheet" href="assets/css/style.css">
-        <script>
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", () => {
-                    navigator.serviceWorker.register("/uv/sw.js", {
-                        scope: __uv$config.prefix,
-                    });
+<head>
+    <meta charset="utf-8">
+    <title>about:blank</title>
+    <script src="/assets/uv/uv.bundle.js"></script>
+    <script src="/assets/uv/uv.config.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/uv/sw.js", {
+                    scope: __uv$config.prefix,
                 });
-            }
-        </script>
-    </head>
-    <body>
-        <div class="title">
-            <h1 class="title" id="title">Click a button to open in PopUp</h1>
-            <h2 class="sectionTitle">Click alt escape or click out to close the PopUp</h2>
-            <button id="toggle" onclick="toggleTheme()" class="toggle">Toggle Light/Dark</button>
-            <button class="toggle" id="launchInAboutBlankBtn" onclick="openInNewTab('https://gameportal-v3-2025.vercel.app/')">Open in About:Blank</button>
-        </div>
-        <div id="buttonSpace" class="buttonSpace"><!--buttons created by js--></div>
-        <br><br>
-        <br><br>
-        <input type="url" id="inputBox" placeholder="https://example.com" class="inputBox">
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="title">
+        <h1 class="title" id="title">
+            Click a button to open in PopUp
+        </h1>
+        <h2 class="sectionTitle">
+            Click alt escape or click out to close the PopUp
+        </h2>
+        <button id="toggle" class="toggle" onclick="toggleTheme()">
+            Toggle Light/Dark
+        </button>
+        <button id="launchInAboutBlankBtn" class="toggle" onclick="openInNewTab('https://gameportal-v3-2025.vercel.app/')">
+            Open in About:Blank
+        </button>
+    </div>
+
+    <div id="buttonSpace" class="buttonSpace">
+        <!-- buttons created by js -->
+    </div>
+
+    <div style="height: 2em;"></div>
+
+    <div class="inputSection">
+        <input
+            type="url"
+            id="inputBox"
+            placeholder="https://example.com"
+            class="inputBox"
+        >
         <button id="urlButton">Go!</button>
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal" id="modal">
-            <div class="modalToolbar" id="modalToolbar">
-                <button class="modalToolbarBtn closeModalBtn" onclick="closeModal()">Close</button>
-                <button class="modalToolbarBtn FsBtn">Fullscreen</button>
-                <button class="modalToolbarBtn AbtBlnkBtn" onclick="redirect()">Open In About:Blank</button>
-            </div>
-            <embed id="iframe">
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <div id="modal" class="modal">
+        <div id="modalToolbar" class="modalToolbar">
+            <button class="modalToolbarBtn closeModalBtn" onclick="closeModal()">
+                Close
+            </button>
+            <button class="modalToolbarBtn FsBtn">
+                Fullscreen
+            </button>
+            <button class="modalToolbarBtn AbtBlnkBtn" onclick="redirect()">
+                Open In About:Blank
+            </button>
         </div>
-        <script src="/assets/js/script.js" async></script>
-    </body>
+        <embed id="iframe">
+    </div>
+
+    <script src="/assets/js/script.js" async></script>
+</body>
 </html>
